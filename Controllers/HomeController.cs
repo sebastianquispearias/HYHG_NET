@@ -1,4 +1,5 @@
 ﻿using CORRECTO30NOV.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,6 +19,7 @@ namespace CORRECTO30NOV.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
@@ -28,5 +30,14 @@ namespace CORRECTO30NOV.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [Authorize]
+        public IActionResult UploadPdf()
+        {
+            return View();// Tu lógica para manejar la carga del archivo PDF
+        }
+
+
+
     }
 }

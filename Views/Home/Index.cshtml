@@ -1,8 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Sistema de pagos online</h1>
+    <p>Envía tu comprobante de pago y gana premios!</a>.</p>
+</div>
+<!-- Botón para seleccionar archivo PDF -->
+
+<div class="container-custom mt-4">
+
+<div class="container-custom mt-4">
+    <button class="btn btn-danger btn-lg" id="upload-button">
+        <i class="fas fa-file-upload"></i> Seleccionar archivo PDF
+    </button>
+    <input type="file" id="pdf-upload" accept=".pdf" style="display: none;">
 </div>

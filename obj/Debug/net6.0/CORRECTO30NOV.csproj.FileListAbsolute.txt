@@ -256,3 +256,4 @@ C:\Users\sebas\OneDrive\Escritorio\proyectos\CORRECTO30NOV\obj\Debug\net6.0\refi
 C:\Users\sebas\OneDrive\Escritorio\proyectos\CORRECTO30NOV\obj\Debug\net6.0\CORRECTO30NOV.pdb
 C:\Users\sebas\OneDrive\Escritorio\proyectos\CORRECTO30NOV\obj\Debug\net6.0\CORRECTO30NOV.genruntimeconfig.cache
 C:\Users\sebas\OneDrive\Escritorio\proyectos\CORRECTO30NOV\obj\Debug\net6.0\ref\CORRECTO30NOV.dll
+C:\Users\sebas\OneDrive\Escritorio\proyectos\CORRECTO30NOV\obj\Debug\net6.0\CORRECTO30NOV.sourcelink.json

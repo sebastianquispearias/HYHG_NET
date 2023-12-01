@@ -16,3 +16,27 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Estilos personalizados */
+button {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.container-custom {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    align-items: safe center; /* Centra el botón verticalmente */
+    height: 50vh; /* Ajusta la altura del contenedor */
+}
+
+#upload-button {
+    padding: 30px 60px; /* Aumenta el padding para hacer el botón más grande */
+    font-size: 36px; /* Aumenta el tamaño de la fuente */
+}
