@@ -245,6 +245,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\FOTOCARNe.pdf",
+      "PackagePath": "staticwebassets\\uploads\\FOTOCARNe.pdf"
+    },
+    {
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\boleta pago 40so tercio superior.pdf",
+      "PackagePath": "staticwebassets\\uploads\\boleta pago 40so tercio superior.pdf"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CORRECTO30NOV.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

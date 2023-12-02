@@ -2,16 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-
 <div class="text-center">
     <h1 class="display-4">Sistema de pagos online</h1>
     <p>Envía tu comprobante de pago y gana premios!.</p>
 </div>
-<!-- Botón para seleccionar archivo PDF -->
 
+<!-- Formulario para subir archivo -->
+<form id="fileUploadForm" method="post" enctype="multipart/form-data">
     <div class="container-custom mt-4">
-        <button class="btn btn-danger btn-lg" id="upload-button">
+        <button type="button" class="btn btn-danger btn-lg" id="upload-button">
             <i class="fas fa-file-upload"></i> Seleccionar archivo PDF
         </button>
-        <input type="file" id="pdf-upload" accept=".pdf" style="display: none;">
+        <input type="file" id="pdf-upload" name="file" accept=".pdf" style="display: none;">
     </div>
+</form>
+
+<script>
+    document.getElementById('upload-button').addEventListener('click', function () {
+        document.getElementById('pdf-upload').click();
+    });
+
+    document.getElementById('pdf-upload').addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+            document.getElementById('fileUploadForm').submit(); // Envía el formulario después de seleccionar un archivo
+        }
+    });
+</script>

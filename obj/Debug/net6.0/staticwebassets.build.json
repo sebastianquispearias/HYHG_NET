@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lPjVRALa4SPvKfQ+9uyPsJ1glTq7IWYpNaewM5kAFpw=",
+  "Hash": "Gx66J15WwZzjw4ntx3QbsjK4+bcFwdfidSOh7NLE0Q4=",
   "Source": "CORRECTO30NOV",
   "BasePath": "_content/CORRECTO30NOV",
   "Mode": "Default",
@@ -2333,6 +2333,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\boleta pago 40so tercio superior.pdf",
+      "SourceId": "CORRECTO30NOV",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
+      "BasePath": "_content/CORRECTO30NOV",
+      "RelativePath": "uploads/boleta pago 40so tercio superior.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\boleta pago 40so tercio superior.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\FOTOCARNe.pdf",
+      "SourceId": "CORRECTO30NOV",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
+      "BasePath": "_content/CORRECTO30NOV",
+      "RelativePath": "uploads/FOTOCARNe.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\FOTOCARNe.pdf"
     }
   ]
 }

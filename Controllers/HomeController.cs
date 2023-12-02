@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace CORRECTO30NOV.Controllers
 {
@@ -39,6 +42,26 @@ namespace CORRECTO30NOV.Controllers
             }
 
             // Continuar con la lógica de carga del archivo
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(IFormFile file)
+        {
+            if (file != null && file.Length > 0)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads", file.FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                // Redirigir a alguna página o mostrar mensaje de éxito
+                return RedirectToAction("Index");
+            }
+
+            // Manejar el caso de que no se haya seleccionado un archivo
             return View();
         }
 
