@@ -54,16 +54,19 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     <script>
-        var isAuthenticated = @User.Identity.IsAuthenticated.toString().toLowerCase() === 'true';
+        var isAuthenticated = '@User.Identity.IsAuthenticated'.toLowerCase() === 'true';
         document.getElementById('upload-button').addEventListener('click', function () {
             if (!isAuthenticated) {
-                window.location.href = '@Url.Action("Login", "Account", new { area = "Identity" })';
+                window.location.href = '/Identity/Account/Login';
+
             } else {
                 document.getElementById('pdf-upload').click();
             }
         });
     </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
