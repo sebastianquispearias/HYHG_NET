@@ -55,8 +55,13 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
+        var isAuthenticated = @User.Identity.IsAuthenticated.toString().toLowerCase() === 'true';
         document.getElementById('upload-button').addEventListener('click', function () {
-            document.getElementById('pdf-upload').click();
+            if (!isAuthenticated) {
+                window.location.href = '@Url.Action("Login", "Account", new { area = "Identity" })';
+            } else {
+                document.getElementById('pdf-upload').click();
+            }
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)

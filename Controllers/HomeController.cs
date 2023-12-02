@@ -31,10 +31,15 @@ namespace CORRECTO30NOV.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize]
         public IActionResult UploadPdf()
         {
-            return View();// Tu lógica para manejar la carga del archivo PDF
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account", new { area = "Identity" });
+            }
+
+            // Continuar con la lógica de carga del archivo
+            return View();
         }
 
 
