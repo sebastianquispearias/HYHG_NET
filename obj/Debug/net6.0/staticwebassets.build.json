@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qh++R6V/H0exD3ToklzUDJSNe0WMTCm1mIipJh4EFDI=",
+  "Hash": "fv3kvqH0/5wKOkLm0mnY0R6a8yhE/p9FL+YKHGjdYXc=",
   "Source": "CORRECTO30NOV",
   "BasePath": "_content/CORRECTO30NOV",
   "Mode": "Default",
@@ -2352,6 +2352,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\boleta pago 40so tercio superior.pdf",
+      "SourceId": "CORRECTO30NOV",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
+      "BasePath": "_content/CORRECTO30NOV",
+      "RelativePath": "uploads/boleta pago 40so tercio superior.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\boleta pago 40so tercio superior.pdf"
     },
     {
       "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\voucher.pdf",

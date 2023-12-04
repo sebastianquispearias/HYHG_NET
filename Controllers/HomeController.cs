@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using System.Text.RegularExpressions;
-using Microsoft.Extensions.Logging; // Asegúrate de tener esta importación para ILogger
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CORRECTO30NOV.Controllers
 {
@@ -60,14 +62,19 @@ namespace CORRECTO30NOV.Controllers
                     await file.CopyToAsync(stream);
                 }
 
-                ProcesarArchivoPdf(filePath);
-                return RedirectToAction("Index");
+                var datosVoucher = ProcesarArchivoPdf(filePath);
+                var movimientosBancarios = ProcesarMovimientosBancarios();
+                var coincidencia = CompararDatos(datosVoucher, movimientosBancarios);
+
+                ViewBag.ResultadoComparacion = coincidencia ? "Coincidencia encontrada." : "No se encontraron coincidencias.";
+
+                return View("Index");
             }
 
             return View();
         }
 
-        private void ProcesarArchivoPdf(string filePath)
+        private VoucherData ProcesarArchivoPdf(string filePath)
         {
             using (PdfReader reader = new PdfReader(filePath))
             {
@@ -78,8 +85,7 @@ namespace CORRECTO30NOV.Controllers
                     text += PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page));
                 }
 
-                var datosVoucher = ExtraerDatosVoucher(text);
-                // Aquí puedes hacer algo con los datos extraídos
+                return ExtraerDatosVoucher(text);
             }
         }
 
@@ -95,6 +101,45 @@ namespace CORRECTO30NOV.Controllers
 
             return voucherData;
         }
+
+        private List<MovimientoBancario> ProcesarMovimientosBancarios()
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/bank/constanciamovimientos.pdf");
+            var movimientosBancarios = new List<MovimientoBancario>();
+
+            using (PdfReader reader = new PdfReader(filePath))
+            {
+                PdfDocument pdfDoc = new PdfDocument(reader);
+                string text = "";
+                for (int page = 1; page <= pdfDoc.GetNumberOfPages(); page++)
+                {
+                    text += PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page));
+                }
+
+                var lineas = text.Split('\n');
+                foreach (var linea in lineas)
+                {
+                    if (linea.Contains("DEPOSITO CAJERO"))
+                    {
+                        var datos = linea.Split(' ');
+                        var movimiento = new MovimientoBancario
+                        {
+                            FechaMovimiento = DateTime.Parse(datos[3] + " " + datos[4]),
+                            Monto = decimal.Parse(datos[6].Replace("US$", "").Replace("+", "").Trim()),
+                        };
+                        movimientosBancarios.Add(movimiento);
+                    }
+                }
+
+                return movimientosBancarios;
+            }
+        }
+
+        private bool CompararDatos(VoucherData datosVoucher, List<MovimientoBancario> movimientosBancarios)
+        {
+            var montoVoucher = decimal.Parse(datosVoucher.Monto.Replace("S/", "").Trim());
+            return movimientosBancarios.Any(m => m.Monto == montoVoucher && m.FechaMovimiento.ToString("dd MMM yyyy") == datosVoucher.Fecha);
+        }
     }
 
     public class VoucherData
@@ -104,5 +149,11 @@ namespace CORRECTO30NOV.Controllers
         public string Empresa { get; set; }
         public string CodigoOperacion { get; set; }
         public string Monto { get; set; }
+    }
+
+    public class MovimientoBancario
+    {
+        public DateTime FechaMovimiento { get; set; }
+        public decimal Monto { get; set; }
     }
 }
