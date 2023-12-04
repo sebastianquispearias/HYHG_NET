@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Gx66J15WwZzjw4ntx3QbsjK4+bcFwdfidSOh7NLE0Q4=",
+  "Hash": "Qh++R6V/H0exD3ToklzUDJSNe0WMTCm1mIipJh4EFDI=",
   "Source": "CORRECTO30NOV",
   "BasePath": "_content/CORRECTO30NOV",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CORRECTO30NOV.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\bank\\constanciamovimientos.pdf",
+      "SourceId": "CORRECTO30NOV",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
+      "BasePath": "_content/CORRECTO30NOV",
+      "RelativePath": "bank/constanciamovimientos.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bank\\constanciamovimientos.pdf"
+    },
+    {
       "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\css\\site.css",
       "SourceId": "CORRECTO30NOV",
       "SourceType": "Discovered",
@@ -2335,12 +2354,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\boleta pago 40so tercio superior.pdf",
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\voucher.pdf",
       "SourceId": "CORRECTO30NOV",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
       "BasePath": "_content/CORRECTO30NOV",
-      "RelativePath": "uploads/boleta pago 40so tercio superior.pdf",
+      "RelativePath": "uploads/voucher.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2351,26 +2370,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\boleta pago 40so tercio superior.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\FOTOCARNe.pdf",
-      "SourceId": "CORRECTO30NOV",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
-      "BasePath": "_content/CORRECTO30NOV",
-      "RelativePath": "uploads/FOTOCARNe.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\FOTOCARNe.pdf"
+      "OriginalItemSpec": "wwwroot\\uploads\\voucher.pdf"
     }
   ]
 }

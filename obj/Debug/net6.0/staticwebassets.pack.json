@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CORRECTO30NOV.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\bank\\constanciamovimientos.pdf",
+      "PackagePath": "staticwebassets\\bank\\constanciamovimientos.pdf"
+    },
+    {
       "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -245,12 +249,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\FOTOCARNe.pdf",
-      "PackagePath": "staticwebassets\\uploads\\FOTOCARNe.pdf"
-    },
-    {
-      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\boleta pago 40so tercio superior.pdf",
-      "PackagePath": "staticwebassets\\uploads\\boleta pago 40so tercio superior.pdf"
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\voucher.pdf",
+      "PackagePath": "staticwebassets\\uploads\\voucher.pdf"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CORRECTO30NOV.Microsoft.AspNetCore.StaticWebAssets.props",

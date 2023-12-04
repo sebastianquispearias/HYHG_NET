@@ -5,6 +5,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Threading.Tasks;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas.Parser;
+using System.Text.RegularExpressions;
+using Microsoft.Extensions.Logging; // Asegúrate de tener esta importación para ILogger
 
 namespace CORRECTO30NOV.Controllers
 {
@@ -41,7 +45,6 @@ namespace CORRECTO30NOV.Controllers
                 return RedirectToAction("Login", "Account", new { area = "Identity" });
             }
 
-            // Continuar con la lógica de carga del archivo
             return View();
         }
 
@@ -57,15 +60,49 @@ namespace CORRECTO30NOV.Controllers
                     await file.CopyToAsync(stream);
                 }
 
-                // Redirigir a alguna página o mostrar mensaje de éxito
+                ProcesarArchivoPdf(filePath);
                 return RedirectToAction("Index");
             }
 
-            // Manejar el caso de que no se haya seleccionado un archivo
             return View();
         }
 
+        private void ProcesarArchivoPdf(string filePath)
+        {
+            using (PdfReader reader = new PdfReader(filePath))
+            {
+                PdfDocument pdfDoc = new PdfDocument(reader);
+                string text = "";
+                for (int page = 1; page <= pdfDoc.GetNumberOfPages(); page++)
+                {
+                    text += PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page));
+                }
 
+                var datosVoucher = ExtraerDatosVoucher(text);
+                // Aquí puedes hacer algo con los datos extraídos
+            }
+        }
 
+        private VoucherData ExtraerDatosVoucher(string textoPdf)
+        {
+            var voucherData = new VoucherData();
+
+            voucherData.Fecha = Regex.Match(textoPdf, @"Fecha:\s*(.*)\s*Hora:").Groups[1].Value.Trim();
+            voucherData.CuentaCargo = Regex.Match(textoPdf, @"Cuenta de cargo:\s*(.*)").Groups[1].Value.Trim();
+            voucherData.Empresa = Regex.Match(textoPdf, @"Empresa:\s*(.*)").Groups[1].Value.Trim();
+            voucherData.CodigoOperacion = Regex.Match(textoPdf, @"Código de operación :\s*(\d+)").Groups[1].Value.Trim();
+            voucherData.Monto = Regex.Match(textoPdf, @"Monto :\s*S/\s*(\d+,\d+\.\d+)").Groups[1].Value.Trim();
+
+            return voucherData;
+        }
+    }
+
+    public class VoucherData
+    {
+        public string Fecha { get; set; }
+        public string CuentaCargo { get; set; }
+        public string Empresa { get; set; }
+        public string CodigoOperacion { get; set; }
+        public string Monto { get; set; }
     }
 }

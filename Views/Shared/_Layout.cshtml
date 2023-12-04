@@ -57,14 +57,7 @@
 
     <script>
         var isAuthenticated = '@User.Identity.IsAuthenticated'.toLowerCase() === 'true';
-        document.getElementById('upload-button').addEventListener('click', function () {
-            if (!isAuthenticated) {
-                window.location.href = '/Identity/Account/Login';
-
-            } else {
-                document.getElementById('pdf-upload').click();
-            }
-        });
+        
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
