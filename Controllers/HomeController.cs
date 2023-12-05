@@ -122,18 +122,30 @@ namespace CORRECTO30NOV.Controllers
                     if (linea.Contains("DEPOSITO CAJERO"))
                     {
                         var datos = linea.Split(' ');
-                        var movimiento = new MovimientoBancario
+
+                        // Verifica que 'datos' tenga suficientes elementos
+                        if (datos.Length > 6 && decimal.TryParse(datos[6].Replace("US$", "").Replace("+", "").Trim(), out decimal montoParsed))
                         {
-                            FechaMovimiento = DateTime.Parse(datos[3] + " " + datos[4]),
-                            Monto = decimal.Parse(datos[6].Replace("US$", "").Replace("+", "").Trim()),
-                        };
-                        movimientosBancarios.Add(movimiento);
+                            var movimiento = new MovimientoBancario
+                            {
+                                FechaMovimiento = DateTime.Parse(datos[3] + " " + datos[4]),
+                                Monto = montoParsed
+                            };
+                            movimientosBancarios.Add(movimiento);
+                        }
+                        else
+                        {
+                            // Opcional: Manejar el caso en que no hay suficientes elementos o la conversión falla
+                            // Por ejemplo, puedes registrar un error o continuar con el siguiente elemento
+                        }
                     }
                 }
 
                 return movimientosBancarios;
             }
         }
+
+
 
         private bool CompararDatos(VoucherData datosVoucher, List<MovimientoBancario> movimientosBancarios)
         {
