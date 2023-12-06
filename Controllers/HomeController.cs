@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
 
 namespace CORRECTO30NOV.Controllers
 {
@@ -106,6 +107,7 @@ namespace CORRECTO30NOV.Controllers
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/bank/constanciamovimientos.pdf");
             var movimientosBancarios = new List<MovimientoBancario>();
+            bool procesarTransacciones = false;
 
             using (PdfReader reader = new PdfReader(filePath))
             {
@@ -119,39 +121,109 @@ namespace CORRECTO30NOV.Controllers
                 var lineas = text.Split('\n');
                 foreach (var linea in lineas)
                 {
-                    if (linea.Contains("DEPOSITO CAJERO"))
+                    if (linea.StartsWith("Cargo realizado por Fecha y hora Monto"))
                     {
-                        var datos = linea.Split(' ');
+                        procesarTransacciones = true;
+                        continue;
+                    }
 
-                        // Verifica que 'datos' tenga suficientes elementos
-                        if (datos.Length > 6 && decimal.TryParse(datos[6].Replace("US$", "").Replace("+", "").Trim(), out decimal montoParsed))
+                    if (procesarTransacciones)
+                    {
+                        var partes = linea.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        int indiceFecha = -1;
+                        for (int i = 0; i < partes.Length; i++)
                         {
-                            var movimiento = new MovimientoBancario
+                            if (Regex.IsMatch(partes[i], @"\bene\b|\bfeb\b|\bmar\b|\babr\b|\bmay\b|\bjun\b|\bjul\b|\bago\b|\bsep\b|\boct\b|\bnov\b|\bdic\b"))
                             {
-                                FechaMovimiento = DateTime.Parse(datos[3] + " " + datos[4]),
-                                Monto = montoParsed
-                            };
-                            movimientosBancarios.Add(movimiento);
+                                indiceFecha = i;
+                                break;
+                            }
                         }
-                        else
+
+                        if (indiceFecha != -1 && partes.Length > indiceFecha + 2)
                         {
-                            // Opcional: Manejar el caso en que no hay suficientes elementos o la conversión falla
-                            // Por ejemplo, puedes registrar un error o continuar con el siguiente elemento
+                            try
+                            {
+                                var dia = int.Parse(partes[indiceFecha - 1]);
+                                var mes = MesANumero(partes[indiceFecha]);
+                                var año = DateTime.Now.Year; // Asumiendo el año actual
+                                var horaMinutos = partes[indiceFecha + 1].Split(':');
+                                var hora = int.Parse(horaMinutos[0]);
+                                var minutos = int.Parse(horaMinutos[1]);
+
+                                var fechaHora = new DateTime(año, mes, dia, hora, minutos, 0);
+                                var montoStr = partes[partes.Length - 1].Replace("S/", "").Replace(",", "").Trim();
+                                var montoParsed = decimal.Parse(montoStr);
+
+                                var movimiento = new MovimientoBancario
+                                {
+                                    FechaMovimiento = fechaHora,
+                                    Monto = montoParsed
+                                };
+                                movimientosBancarios.Add(movimiento);
+                            }
+                            catch (Exception)
+                            {
+                                // Manejo de errores de formato o conversión
+                            }
                         }
                     }
+
+
+
                 }
 
-                return movimientosBancarios;
             }
+
+            return movimientosBancarios;
         }
+        private int MesANumero(string mes)
+        {
+            return mes switch
+            {
+                "ene" => 1,
+                "feb" => 2,
+                "mar" => 3,
+                "abr" => 4,
+                "may" => 5,
+                "jun" => 6,
+                "jul" => 7,
+                "ago" => 8,
+                "sep" => 9,
+                "oct" => 10,
+                "nov" => 11,
+                "dic" => 12,
+                _ => 0
+            };
+        }
+
+
+        public class MovimientoBancario
+        {
+            public DateTime FechaMovimiento { get; set; }
+            public decimal Monto { get; set; }
+        }
+
+
+
 
 
 
         private bool CompararDatos(VoucherData datosVoucher, List<MovimientoBancario> movimientosBancarios)
         {
-            var montoVoucher = decimal.Parse(datosVoucher.Monto.Replace("S/", "").Trim());
-            return movimientosBancarios.Any(m => m.Monto == montoVoucher && m.FechaMovimiento.ToString("dd MMM yyyy") == datosVoucher.Fecha);
+            var montoVoucher = decimal.Parse(datosVoucher.Monto.Replace("S/", "").Replace(",", "").Trim());
+
+            // Ajustar la fecha para que coincida con la abreviatura correcta del mes
+            var fechaAjustada = datosVoucher.Fecha.Replace("sep", "sept.");
+
+            if (DateTime.TryParseExact(fechaAjustada, "dd MMM yyyy", new CultureInfo("es-ES"), DateTimeStyles.None, out DateTime fechaVoucher))
+            {
+                return movimientosBancarios.Any(m => m.Monto == montoVoucher && m.FechaMovimiento.Date == fechaVoucher.Date);
+            }
+
+            return false;
         }
+
     }
 
     public class VoucherData

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CORRECTO30NOV.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\bank\\a.pdf",
+      "PackagePath": "staticwebassets\\bank\\a.pdf"
+    },
+    {
       "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\bank\\constanciamovimientos.pdf",
       "PackagePath": "staticwebassets\\bank\\constanciamovimientos.pdf"
     },
@@ -249,8 +253,12 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\aa.pdf",
-      "PackagePath": "staticwebassets\\uploads\\aa.pdf"
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\agg.pdf",
+      "PackagePath": "staticwebassets\\uploads\\agg.pdf"
+    },
+    {
+      "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\hh.pdf",
+      "PackagePath": "staticwebassets\\uploads\\hh.pdf"
     },
     {
       "Id": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\voucher.pdf",

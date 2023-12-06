@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1yzxAQNl6ojhgm5qUu2tOHKyGDq6dJw2BQDg4DeuOko=",
+  "Hash": "QxIMYBRDVsrK1zaIZOYkewrLHOMIbZuQGKmZtGr8e3k=",
   "Source": "CORRECTO30NOV",
   "BasePath": "_content/CORRECTO30NOV",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CORRECTO30NOV.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\bank\\a.pdf",
+      "SourceId": "CORRECTO30NOV",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
+      "BasePath": "_content/CORRECTO30NOV",
+      "RelativePath": "bank/a.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bank\\a.pdf"
+    },
+    {
       "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\bank\\constanciamovimientos.pdf",
       "SourceId": "CORRECTO30NOV",
       "SourceType": "Discovered",
@@ -2354,12 +2373,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\aa.pdf",
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\agg.pdf",
       "SourceId": "CORRECTO30NOV",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
       "BasePath": "_content/CORRECTO30NOV",
-      "RelativePath": "uploads/aa.pdf",
+      "RelativePath": "uploads/agg.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2370,7 +2389,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\aa.pdf"
+      "OriginalItemSpec": "wwwroot\\uploads\\agg.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\hh.pdf",
+      "SourceId": "CORRECTO30NOV",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\",
+      "BasePath": "_content/CORRECTO30NOV",
+      "RelativePath": "uploads/hh.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\hh.pdf"
     },
     {
       "Identity": "C:\\Users\\sebas\\OneDrive\\Escritorio\\proyectos\\CORRECTO30NOV\\wwwroot\\uploads\\voucher.pdf",
